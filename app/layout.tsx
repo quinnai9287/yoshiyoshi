@@ -1,6 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+ 
+export const viewport: Viewport = {
+  colorScheme: 'light',
+}
+ 
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <main className="flex justify-center py-32">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
